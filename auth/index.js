@@ -1,5 +1,5 @@
 const axios = require('axios');
-const config = require("../../config").config
+const config = require("../config").config
 
 class AuthApi {
 
@@ -20,7 +20,6 @@ class AuthApi {
     }
 
     getToken() {
-        console.log(this.defaultHeaders)
         return this.authAxios.post('/token');
     }
 }
