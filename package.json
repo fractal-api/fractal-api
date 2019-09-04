@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/fractal-api/fractal-api/issues"
   },
-  "homepage": "https://github.com/fractal-api/fractal-api#readme"
+  "homepage": "https://github.com/fractal-api/fractal-api#readme",
+  "dependencies": {
+    "axios": "^0.19.0"
+  }
 }

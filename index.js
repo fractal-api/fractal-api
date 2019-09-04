@@ -1,27 +1,21 @@
-const bankApi = require("./api/banking").banking
-const acctApi = require("./api/accounting").accounting
-const compApi = require("./api/company").company
-const authApi =require("./api/auth").auth
+const bankApi = require("./api/banking").banking;
+const compApi = require("./api/company").company;
+const authApi =require("./api/auth").auth;
 
-const createBankApi = (apiKey, partner) => {
+const FractalBank = (apiKey, partner) => {
     return bankApi.createBankApi(apiKey, partner)
 }
 
-const createAuthApi = (apiKey, partner) => {
+const FractalAuth = (apiKey, partner) => {
     return authApi.createAuthApi(apiKey, partner)
 }
 
-const createAccountingApi = (apiKey, partner) => {
-    return acctApi.createAccountingApi(apiKey, partner)
-}
-
-const createCompanyApi = (apiKey, partner) => {
+const FractalCompany = (apiKey, partner) => {
     return compApi.createCompanyApi(apiKey, partner)
 }
 
 exports.api = {
-    createBankApi,
-    createAuthApi,
-    createAccountingApi,
-    createCompanyApi
+    FractalBank,
+    FractalAuth,
+    FractalCompany
 }
