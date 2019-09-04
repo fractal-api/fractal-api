@@ -1,6 +1,6 @@
-const bankApi = require("./api/banking").banking;
-const compApi = require("./api/company").company;
-const authApi =require("./api/auth").auth;
+const bankApi = require("./banking").banking;
+const compApi = require("./company").company;
+const authApi =require("./auth").auth;
 
 const FractalBank = (apiKey, partner) => {
     return bankApi.createBankApi(apiKey, partner)
