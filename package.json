@@ -1,0 +1,23 @@
+{
+  "name": "fractal-api",
+  "version": "1.0.0",
+  "description": "Library to call Fractal's APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/fractal-api/fractal-api.git"
+  },
+  "keywords": [
+    "Fractal",
+    "API"
+  ],
+  "author": "Jonny Lea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fractal-api/fractal-api/issues"
+  },
+  "homepage": "https://github.com/fractal-api/fractal-api#readme"
+}
