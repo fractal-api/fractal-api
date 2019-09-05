@@ -3,7 +3,6 @@ const config = require("../config").config
 const apiHelper = require("../helper").helper
 
 class BankApi {
-
     constructor(apiKey, partner) {
         this.apiKey = apiKey;
         this.partner = partner;

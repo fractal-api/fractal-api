@@ -2,7 +2,6 @@ const axios = require('axios');
 const config = require("../config").config
 
 class AuthApi {
-
     constructor(apiKey, partner) {
         this.apiKey = apiKey;
         this.partner = partner;
