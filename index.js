@@ -31,35 +31,26 @@ class FractalApi {
     }
 }
 
-const Fractal = (apiKey, partner) => {
+exports.setup = (apiKey, partner) => {
     return new FractalApi(apiKey, partner);
 }
 
-const FractalBank = (apiKey, partner) => {
+exports.bankingApi = (apiKey, partner) => {
     return bankApi.createBankApi(apiKey, partner);
 }
 
-const FractalAuth = (apiKey, partner) => {
+exports.authApi = (apiKey, partner) => {
     return authApi.createAuthApi(apiKey, partner);
 }
 
-const FractalCompany = (apiKey, partner) => {
+exports.companyApi = (apiKey, partner) => {
     return compApi.createCompanyApi(apiKey, partner);
 }
 
-const FractalForecast = (apiKey, partner) => {
+exports.forecastApi = (apiKey, partner) => {
     return forecastApi.createForecastApi(apiKey, partner);
 }
 
-const FractalCategories = (apiKey, partner) => {
+exports.categoriesApi = (apiKey, partner) => {
     return catApi.createCategoriesApi(apiKey, partner);
-}
-
-exports.api = {
-    Fractal,
-    FractalBank,
-    FractalAuth,
-    FractalCompany,
-    FractalForecast,
-    FractalCategories
 }
