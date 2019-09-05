@@ -1,4 +1,4 @@
-const createHeaders = (auth, key, partner) => {
+export const createHeaders = (auth: string, key: string, partner: string) => {
     return {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -7,5 +7,3 @@ const createHeaders = (auth, key, partner) => {
         'Authorization': `Bearer ${auth}`
     }
 }
-
-exports.helper = { createHeaders }

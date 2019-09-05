@@ -1,8 +1,18 @@
-const axios = require('axios');
-const config = require("../config").config
+import { FractalApi } from "..";
+import Axios, { AxiosInstance } from "axios";
+import * as config from "../config";
 
-class AuthApi {
-    constructor(apiKey, partner) {
+export interface FractalToken {
+
+}
+
+export default class AuthApi implements FractalApi {
+    apiKey: string;
+    partner: string;
+    defaultHeaders: object;
+    authAxios: AxiosInstance;
+
+    constructor(apiKey: string, partner: string) {
         this.apiKey = apiKey;
         this.partner = partner;
         this.defaultHeaders = {
@@ -11,22 +21,14 @@ class AuthApi {
             'x-api-key': apiKey,
             'x-partner-id': partner
         }
-        this.authAxios = axios.create({
+        this.authAxios = Axios.create({
             baseURL: config.authUrl,
             timeout: 1000,
             headers: this.defaultHeaders
         })
     }
 
-    createToken() {
+    createToken() : FractalToken {
         return this.authAxios.post('/');
     }
-}
-
-const createAuthApi = (apiKey, partner) => {
-    return new AuthApi(apiKey, partner)
-}
-
-exports.auth = {
-    createAuthApi
 }
