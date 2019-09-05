@@ -12,8 +12,12 @@ class ForecastsApi {
         })
     }
 
-    getForecastedTransactions(authToken) {
-        return this.fcastAxios.get("/", { headers: apiHelper.createHeaders(authToken, this.apiKey, this.partner) });
+    getForecastedTransactions(authToken, companyId) {
+        let url = `/`;
+        if (companyId) {
+            url = `${url}?companyId=${companyId}`;
+        }
+        return this.fcastAxios.get(url, { headers: apiHelper.createHeaders(authToken, this.apiKey, this.partner) });
     }
 }
 

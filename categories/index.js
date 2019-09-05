@@ -20,8 +20,12 @@ class CategoriesApi {
         return this.catAxios.put("/", categorisedTrx, { headers: apiHelper.createHeaders(authToken, this.apiKey, this.partner) });
     }
     
-    getCategorisedTransactions(authToken, catId) {
-        return this.catAxios.get(`/${catId}/transactions`, { headers: apiHelper.createHeaders(authToken, this.apiKey, this.partner) });
+    getCategorisedTransactions(authToken, catId, companyId) {
+        let url = `/${catId}/transactions`;
+        if (companyId) {
+            url = `${url}?companyId=${companyId}`;
+        }
+        return this.catAxios.get(url, { headers: apiHelper.createHeaders(authToken, this.apiKey, this.partner) });
     }
 }
 

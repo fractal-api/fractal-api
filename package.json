@@ -1,6 +1,6 @@
 {
-  "name": "fractal-api",
-  "version": "1.0.0",
+  "name": "fractalise",
+  "version": "0.0.1-dev",
   "description": "Library to call Fractal's APIs",
   "main": "index.js",
   "scripts": {
