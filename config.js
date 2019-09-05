@@ -1,14 +1,16 @@
-const version = "v1";
+const apiDomain = "apis.fractal-dev.co.uk";
 
-const bankUrl = `https://r7p2rhg4ji.execute-api.eu-west-1.amazonaws.com/${version}`;
-const acctUrl = `https://13onkb74v6.execute-api.eu-west-1.amazonaws.com/${version}`;
-const companyUrl = `https://9i54hif0ii.execute-api.eu-west-1.amazonaws.com/${version}`;
-const authUrl = `https://7gq3bccyoa.execute-api.eu-west-1.amazonaws.com/${version}`;
+const bankUrl = `https://${apiDomain}/banking`;
+const companyUrl = `https://${apiDomain}/companies`;
+const forecastsUrl = `https://${apiDomain}/forecasts`;
+const categoriesUrl = `https://${apiDomain}/categories`;
+const authUrl = `https://${apiDomain}/token`;
 
 exports.config = {
-    version,
+    apiDomain,
     bankUrl,
-    acctUrl,
     companyUrl,
+    forecastsUrl,
+    categoriesUrl,
     authUrl
 };

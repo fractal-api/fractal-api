@@ -19,8 +19,8 @@ class AuthApi {
         })
     }
 
-    getToken() {
-        return this.authAxios.post('/token');
+    createToken() {
+        return this.authAxios.post('/');
     }
 }
 
