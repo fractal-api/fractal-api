@@ -1,4 +1,8 @@
-# FRACTAL API NODE SDK
+# FRACTALISE
+
+Library to interact with the Fractal-Labs APIs:
+
+https://www.askfractal.com/product
 
 ## Installation
 
@@ -14,6 +18,8 @@ YARN:
 
 Obtain Access Token:
 ```
+import fractalise from "fractalise";
+
 const fractalApi = fractalise.api(<API_KEY>, <PARTNER_ID>);
 const authApi = fractalApi.auth();
 authApi.createToken().then(resp => {
@@ -23,7 +29,9 @@ authApi.createToken().then(resp => {
 
 Pass token into other APIs to call endpoints:
 ```
-const fractalApi = fractalise.api("HI", "hsafci");
+import fractalise from "fractalise";
+
+const fractalApi = fractalise.api(<API_KEY>, <PARTNER_ID>);
 const bankApi = fractalApi.banks();
 bankApi.getAccountTransactions({ authToken }, <bank_id>, <account_id>).then();
 ```
