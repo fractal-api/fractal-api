@@ -1,34 +1,31 @@
-import { FractalApi } from "..";
-import Axios, { AxiosInstance } from "axios";
+import { FractalApi } from "../api";
+import Axios from "axios";
 import * as config from "../config";
 
 export interface FractalToken {
-
+    accessToken: string;
+    expires: Date;
+    partnerId: string;
+    parnterName: string;
+    tokenType: string;
 }
 
-export default class AuthApi implements FractalApi {
-    apiKey: string;
-    partner: string;
-    defaultHeaders: object;
-    authAxios: AxiosInstance;
+export default class AuthApi extends FractalApi {
 
     constructor(apiKey: string, partner: string) {
-        this.apiKey = apiKey;
-        this.partner = partner;
-        this.defaultHeaders = {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            'x-api-key': apiKey,
-            'x-partner-id': partner
-        }
-        this.authAxios = Axios.create({
+        super(apiKey, partner, Axios.create({
             baseURL: config.authUrl,
             timeout: 1000,
-            headers: this.defaultHeaders
-        })
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'x-api-key': apiKey,
+                'x-partner-id': partner
+            }
+        }));
     }
 
-    createToken() : FractalToken {
-        return this.authAxios.post('/');
+    createToken() : Promise<any> {
+        return this.fractalAxios.post('/');
     }
 }
