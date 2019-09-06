@@ -1,7 +1,6 @@
-import { FractalApi } from "../api";
+import { FractalApi, CategorisedTrx, FractalToken } from "..";
 import Axios from "axios";
 import * as config from "../config";
-import { FractalToken } from "../auth";
 import { createHeaders } from "../helpers";
 
 export default class CategoriesApi extends FractalApi {
@@ -27,8 +26,4 @@ export default class CategoriesApi extends FractalApi {
         }
         return this.fractalAxios.get(url, { headers: createHeaders(authToken, this.apiKey, this.partner) });
     }
-}
-
-export interface CategorisedTrx {
-
 }

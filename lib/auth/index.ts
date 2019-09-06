@@ -1,14 +1,6 @@
-import { FractalApi } from "../api";
+import { FractalApi } from "..";
 import Axios from "axios";
 import * as config from "../config";
-
-export interface FractalToken {
-    accessToken: string;
-    expires: Date;
-    partnerId: string;
-    parnterName: string;
-    tokenType: string;
-}
 
 export default class AuthApi extends FractalApi {
 

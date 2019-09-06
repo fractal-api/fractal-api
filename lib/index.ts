@@ -1,12 +1,19 @@
-import { Fractalise } from "../fractal";
 import { AxiosInstance } from "axios";
-import Auth from "../auth";
-import Bank from "../banking";
-import Forecasts from "../forecast";
-import Categories from "../categories";
-import Company from "../company";
+import Auth from "./auth";
+import Bank from "./banking";
+import Forecasts from "./forecast";
+import Categories from "./categories";
+import Company from "./company";
 
-export default class Fractal implements Fractalise {
+interface Fractalise {
+    banks(): Bank;
+    auth(): Auth;
+    company(): Company;
+    categories(): Categories;
+    forecast(): Forecasts;
+}
+
+class Fractal implements Fractalise {
     apiKey: string;
     partner: string;
     constructor(apiKey: string, partner: string) {
@@ -31,6 +38,10 @@ export default class Fractal implements Fractalise {
     }
 }
 
+export const api = (apiKey: string, partner: string) : Fractal => {
+    return new Fractal(apiKey, partner);
+}
+
 export abstract class FractalApi {
     apiKey: string;
     partner: string;
@@ -41,4 +52,20 @@ export abstract class FractalApi {
         this.partner = partner;
         this.fractalAxios = axiosApi;
     }
+}
+
+export interface CategorisedTrx {
+
+}
+
+export interface FractalCompany {
+    
+}
+
+export interface FractalToken {
+    accessToken: string;
+    expires: Date;
+    partnerId: string;
+    parnterName: string;
+    tokenType: string;
 }

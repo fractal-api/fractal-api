@@ -1,8 +1,7 @@
 import Axios from "axios";
 import * as config from "../config";
 import { createHeaders } from "../helpers";
-import { FractalToken } from "../auth";
-import { FractalApi } from "../api";
+import { FractalApi, FractalToken } from "..";
 
 export default class Bank extends FractalApi {
 
@@ -25,7 +24,7 @@ export default class Bank extends FractalApi {
         return this.fractalAxios.post(url, body, { headers: createHeaders(authToken, this.apiKey, this.partner) });
     }
 
-    getConsents = (authToken: FractalToken, bankId: number, cId: number) => {
+    getConsents = (authToken: FractalToken, bankId: number, cId?: number) => {
         let url = `/${bankId}/consents`;
         if (cId) {
             url = `${url}?companyId=${cId}`;
@@ -43,7 +42,7 @@ export default class Bank extends FractalApi {
         return this.fractalAxios.delete(url, { headers: createHeaders(authToken, this.apiKey, this.partner) });
     }
 
-    getAccounts = (authToken: FractalToken, bankId: number, cId: number) => {
+    getAccounts = (authToken: FractalToken, bankId: number, cId?: number) => {
         let url = `/${bankId}/accounts`;
         if (cId) {
             url = `${url}?companyId=${cId}`;
@@ -51,7 +50,7 @@ export default class Bank extends FractalApi {
         return this.fractalAxios.get(url, { headers: createHeaders(authToken, this.apiKey, this.partner) });
     }
     
-    getAccountsById = (authToken: FractalToken, bankId: number, accountId: string, cId: number) => {
+    getAccountsById = (authToken: FractalToken, bankId: number, accountId: string, cId?: number) => {
         let url = `/${bankId}/accounts/${accountId}`;
         if (cId) {
             url = `${url}?companyId=${cId}`;
@@ -59,7 +58,7 @@ export default class Bank extends FractalApi {
         return this.fractalAxios.get(url, { headers: createHeaders(authToken, this.apiKey, this.partner) });
     }
     
-    getAccountTransactions = (authToken: FractalToken, bankId: number, accountId: string, cId: number) => {
+    getAccountTransactions = (authToken: FractalToken, bankId: number, accountId: string, cId?: number) => {
         let url = `/${bankId}/accounts/${accountId}/transactions`;
         if (cId) {
             url = `${url}?companyId=${cId}`;
@@ -67,7 +66,7 @@ export default class Bank extends FractalApi {
         return this.fractalAxios.get(url, { headers: createHeaders(authToken, this.apiKey, this.partner) });
     }
     
-    getAccountBalances = (authToken: FractalToken, bankId: number, accountId: string, cId: number) => {
+    getAccountBalances = (authToken: FractalToken, bankId: number, accountId: string, cId?: number) => {
         let url = `/${bankId}/accounts/${accountId}/balances`;
         if (cId) {
             url = `${url}?companyId=${cId}`;

@@ -1,4 +1,4 @@
-import { FractalToken } from "../auth";
+import { FractalToken } from "..";
 
 export const createHeaders = (auth: FractalToken, key: string, partner: string) => {
     return {

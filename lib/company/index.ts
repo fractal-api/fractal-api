@@ -1,7 +1,6 @@
-import { FractalApi } from "../api";
+import { FractalApi, FractalCompany, FractalToken } from "..";
 import Axios from "axios";
 import * as config from "../config";
-import { FractalToken } from "../auth";
 import { createHeaders } from "../helpers";
 
 export default class CompanyApi extends FractalApi {
@@ -24,8 +23,4 @@ export default class CompanyApi extends FractalApi {
     createCompany = (authToken: FractalToken, company: FractalCompany) : Promise<any> => {
         return this.fractalAxios.post("/", company, { headers: createHeaders(authToken, this.apiKey, this.partner) });
     }
-}
-
-export interface FractalCompany {
-    
 }

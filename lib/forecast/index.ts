@@ -1,8 +1,7 @@
 import Axios from "axios";
 import * as config from "../config";
 import { createHeaders } from "../helpers";
-import { FractalToken } from "../auth";
-import { FractalApi } from "../api";
+import { FractalApi, FractalToken } from "..";
 
 export default class Forecasts extends FractalApi {
 
