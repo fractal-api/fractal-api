@@ -1,11 +1,14 @@
-import { FractalApi } from "..";
-import Axios from "axios";
+import Axios, { AxiosInstance } from "axios";
 import * as config from "../config";
 
-export default class AuthApi extends FractalApi {
-
+export default class AuthApi {
+    apiKey: string;
+    partner: string;
+    fractalAxios: AxiosInstance;
     constructor(apiKey: string, partner: string) {
-        super(apiKey, partner, Axios.create({
+        this.apiKey = apiKey;
+        this.partner = partner; 
+        this.fractalAxios = Axios.create({
             baseURL: config.authUrl,
             timeout: 1000,
             headers: {
@@ -14,10 +17,10 @@ export default class AuthApi extends FractalApi {
                 'x-api-key': apiKey,
                 'x-partner-id': partner
             }
-        }));
+        });
     }
 
     createToken() : Promise<any> {
-        return this.fractalAxios.post('/');
+        return this.fractalAxios.post("");
     }
 }

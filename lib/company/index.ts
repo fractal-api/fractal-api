@@ -1,15 +1,20 @@
-import { FractalApi, FractalCompany, FractalToken } from "..";
-import Axios from "axios";
+import { FractalCompany, FractalToken } from "..";
+import Axios, { AxiosInstance } from "axios";
 import * as config from "../config";
 import { createHeaders } from "../helpers";
 
-export default class CompanyApi extends FractalApi {
+export default class CompanyApi {
 
+    apiKey: string;
+    partner: string;
+    fractalAxios: AxiosInstance;
     constructor(apiKey: string, partner: string) {
-        super(apiKey, partner, Axios.create({
-            baseURL: config.companyUrl,
+        this.apiKey = apiKey;
+        this.partner = partner;
+        this.fractalAxios = Axios.create({
+            baseURL: config.bankUrl,
             timeout: 1000,
-        }));
+        });
     }
 
     getCompanies = (authToken: FractalToken) : Promise<any> => {
