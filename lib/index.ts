@@ -20,7 +20,6 @@ class Fractal implements Fractalise {
         this.apiKey = apiKey;
         this.partner = partner;
     }
-
     banks(): Bank {
         return new Bank(this.apiKey, this.partner);
     }
@@ -46,7 +45,6 @@ export abstract class FractalApi {
     apiKey: string;
     partner: string;
     fractalAxios: AxiosInstance;
-
     constructor(apiKey: string, partner: string, axiosApi: AxiosInstance) {
         this.apiKey = apiKey;
         this.partner = partner;
