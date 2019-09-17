@@ -50,8 +50,8 @@ export interface FractalCompany {
 
 export interface FractalToken {
     accessToken: string;
-    expires: Date;
+    expires: Number;
     partnerId: string;
-    parnterName: string;
+    partnerName: string;
     tokenType: string;
 }
