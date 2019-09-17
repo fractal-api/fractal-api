@@ -16,7 +16,7 @@ export default class Bank {
         });
     }
 
-    connectBankAccount = (authToken: FractalToken, bankId: number, cId: number, redirect: string) => {
+    connectBankAccount = (authToken: FractalToken, bankId: number, cId: number, redirect: string) : Promise<any> => {
         let url = `/${bankId}/auth`;
         const body = { redirect, companyId: cId };
         return this.fractalAxios.post(url, body, { headers: createHeaders(authToken, this.apiKey, this.partner) });
@@ -28,7 +28,7 @@ export default class Bank {
         return this.fractalAxios.post(url, body, { headers: createHeaders(authToken, this.apiKey, this.partner) });
     }
 
-    getConsents = (authToken: FractalToken, bankId: number, cId?: number) => {
+    getConsents = (authToken: FractalToken, bankId: number, cId?: number) : Promise<any> => {
         let url = `/${bankId}/consents`;
         if (cId) {
             url = `${url}?companyId=${cId}`;
@@ -36,17 +36,17 @@ export default class Bank {
         return this.fractalAxios.get(url, { headers: createHeaders(authToken, this.apiKey, this.partner) });
     }
 
-    getConsent = (authToken: FractalToken, bankId: number, consentId: string) => {
+    getConsent = (authToken: FractalToken, bankId: number, consentId: string) : Promise<any> => {
         let url = `/${bankId}/consents/${consentId}`;
         return this.fractalAxios.get(url, { headers: createHeaders(authToken, this.apiKey, this.partner) });
     }
 
-    deleteConsent = (authToken: FractalToken, bankId: number, consentId: string) => {
+    deleteConsent = (authToken: FractalToken, bankId: number, consentId: string) : Promise<any> => {
         let url = `/${bankId}/consents/${consentId}`;
         return this.fractalAxios.delete(url, { headers: createHeaders(authToken, this.apiKey, this.partner) });
     }
 
-    getAccounts = (authToken: FractalToken, bankId: number, cId?: number) => {
+    getAccounts = (authToken: FractalToken, bankId: number, cId?: number) : Promise<any> => {
         let url = `/${bankId}/accounts`;
         if (cId) {
             url = `${url}?companyId=${cId}`;
@@ -54,7 +54,7 @@ export default class Bank {
         return this.fractalAxios.get(url, { headers: createHeaders(authToken, this.apiKey, this.partner) });
     }
     
-    getAccountsById = (authToken: FractalToken, bankId: number, accountId: string, cId?: number) => {
+    getAccountsById = (authToken: FractalToken, bankId: number, accountId: string, cId?: number) : Promise<any> => {
         let url = `/${bankId}/accounts/${accountId}`;
         if (cId) {
             url = `${url}?companyId=${cId}`;
@@ -62,7 +62,7 @@ export default class Bank {
         return this.fractalAxios.get(url, { headers: createHeaders(authToken, this.apiKey, this.partner) });
     }
     
-    getAccountTransactions = (authToken: FractalToken, bankId: number, accountId: string, cId?: number) => {
+    getAccountTransactions = (authToken: FractalToken, bankId: number, accountId: string, cId?: number) : Promise<any> => {
         let url = `/${bankId}/accounts/${accountId}/transactions`;
         if (cId) {
             url = `${url}?companyId=${cId}`;
@@ -70,7 +70,7 @@ export default class Bank {
         return this.fractalAxios.get(url, { headers: createHeaders(authToken, this.apiKey, this.partner) });
     }
     
-    getAccountBalances = (authToken: FractalToken, bankId: number, accountId: string, cId?: number) => {
+    getAccountBalances = (authToken: FractalToken, bankId: number, accountId: string, cId?: number) : Promise<any> => {
         let url = `/${bankId}/accounts/${accountId}/balances`;
         if (cId) {
             url = `${url}?companyId=${cId}`;

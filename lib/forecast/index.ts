@@ -17,7 +17,7 @@ export default class Forecasts {
         });
     }
 
-    getForecastedTransactions(authToken: FractalToken, companyId: number) {
+    getForecastedTransactions(authToken: FractalToken, companyId: number) : Promise<any> {
         let url = `/`;
         if (companyId) {
             url = `${url}?companyId=${companyId}`;
