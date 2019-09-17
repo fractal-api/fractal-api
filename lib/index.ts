@@ -4,7 +4,7 @@ import Forecasts from "./forecast";
 import Categories from "./categories";
 import Company from "./company";
 
-interface Fractalise {
+export interface Fractalise {
     banks(): Bank;
     auth(): Auth;
     company(): Company;
@@ -12,7 +12,7 @@ interface Fractalise {
     forecast(): Forecasts;
 }
 
-class Fractal implements Fractalise {
+export class Fractal implements Fractalise {
     apiKey: string;
     partner: string;
     constructor(apiKey: string, partner: string) {
@@ -45,7 +45,14 @@ export interface CategorisedTrx {
 }
 
 export interface FractalCompany {
-    
+    name: string,
+    industry: string,
+    address: string,
+    website: string,
+    pitch: string,
+    businessType: string,
+    yEndMonth: number,
+    yEndDay: number
 }
 
 export interface FractalToken {

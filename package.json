@@ -1,6 +1,6 @@
 {
   "name": "fractalise",
-  "version": "0.0.4-dev",
+  "version": "0.0.5-dev",
   "description": "Library to call Fractal's APIs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,9 +14,12 @@
   },
   "keywords": [
     "Fractal",
-    "API"
+    "API",
+    "Open Banking",
+    "Banking",
+    "Fintech"
   ],
-  "author": "Jonny Lea",
+  "author": "Jonny Lea <jonny@fractal-labs.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/fractal-api/fractal-api/issues"
